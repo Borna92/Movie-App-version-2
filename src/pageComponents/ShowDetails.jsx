@@ -44,7 +44,6 @@ function ShowDetails() {
         setIsLoading(false);
       });
   }
-  console.log(isLoading);
 
   if (isLoading) {
     return (

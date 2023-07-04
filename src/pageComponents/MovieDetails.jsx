@@ -53,7 +53,6 @@ function MovieDetails() {
         setIsLoading(false);
       });
   }
-  console.log(isLoading);
   if (isLoading) {
     return (
       <div className="error-container">
