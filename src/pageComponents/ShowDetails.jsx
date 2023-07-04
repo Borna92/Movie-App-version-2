@@ -43,7 +43,7 @@ function ShowDetails() {
 
   return (
     <div className="details-container d-flex flex-column align-items-center">
-      <a href={homepage}>
+      <a href={homepage} target="_blank">
         <img src={IMGPATH + poster_path} alt={name} />
       </a>
 
