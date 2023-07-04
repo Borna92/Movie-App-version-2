@@ -1,0 +1,76 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-item {
+  cursor: pointer;
+}
+
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.movie {
+  width: 350px;
+  text-decoration: none;
+}
+
+.movie img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.about {
+  background-color: rgb(58, 58, 252);
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.about h2 {
+  color: #fff;
+}
+
+.score {
+  background-color: rgb(1, 1, 165);
+  padding: 0.4rem;
+  border-radius: 10px;
+}
+
+.red {
+  color: red;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.green {
+  color: green;
+}
+
+.error-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.search-input {
+  text-transform: capitalize;
+}
+
+.trailer-link {
+  text-decoration: none;
+  color: black;
+}
+
+.youtube-logo {
+  color: red;
+  font-size: 4rem;
+}
