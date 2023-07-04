@@ -8,7 +8,7 @@ const AppProvider = ({ children }) => {
   const [totalPages, setTotalPages] = useState(1);
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   const value = {
     genre,
@@ -21,8 +21,6 @@ const AppProvider = ({ children }) => {
     setData,
     searchTerm,
     setSearchTerm,
-    isLoading,
-    setIsLoading,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

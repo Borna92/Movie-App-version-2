@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import Axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Rating from '@mui/material/Rating';
 import { AiFillYoutube } from 'react-icons/ai';
 
@@ -9,6 +9,7 @@ function MovieDetails() {
   const API = `https://api.themoviedb.org/3/movie/${id}?&api_key=04c35731a5ee918f014970082a0088b1`;
   const IMGPATH = `https://image.tmdb.org/t/p/w1280`;
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const {
     genres,
@@ -47,7 +48,18 @@ function MovieDetails() {
       })
       .catch((error) => {
         console.log(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
+  }
+  console.log(isLoading);
+  if (isLoading) {
+    return (
+      <div className="error-container">
+        <h1>Loading...</h1>
+      </div>
+    );
   }
 
   return (

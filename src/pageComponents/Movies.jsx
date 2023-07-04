@@ -1,4 +1,4 @@
-import { useEffect, useContext } from 'react';
+import { useEffect, useContext, useState } from 'react';
 import Axios from 'axios';
 import Card from './Card';
 import SearchBar from './SearchBar';
@@ -6,16 +6,9 @@ import PagesFooter from './PagesFooter';
 import { AppContext } from './Context';
 
 export function Movies() {
-  const {
-    genre,
-    page,
-    setTotalPages,
-    data,
-    setData,
-    searchTerm,
-    isLoading,
-    setIsLoading,
-  } = useContext(AppContext);
+  const { genre, page, setTotalPages, data, setData, searchTerm } =
+    useContext(AppContext);
+  const [isLoading, setIsLoading] = useState(true);
 
   const APIURL = `https://api.themoviedb.org/3/${
     searchTerm === '' ? 'discover' : 'search'
@@ -42,7 +35,7 @@ export function Movies() {
   if (isLoading) {
     return (
       <div className="error-container">
-        <h1>Loading...</h1>;
+        <h1>Loading...</h1>
       </div>
     );
   }
