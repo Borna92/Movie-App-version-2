@@ -6,8 +6,18 @@ import PagesFooter from './PagesFooter';
 import { AppContext } from './Context';
 
 export function Movies() {
-  const { genre, page, setTotalPages, data, setData, searchTerm } =
-    useContext(AppContext);
+  const {
+    genre,
+    page,
+    setTotalPages,
+    data,
+    setData,
+    searchTerm,
+    setExpanded,
+    setGenre,
+    setPage,
+    setSearchTerm,
+  } = useContext(AppContext);
   const [isLoading, setIsLoading] = useState(true);
 
   const APIURL = `https://api.themoviedb.org/3/${
@@ -30,6 +40,13 @@ export function Movies() {
       });
   }
 
+  function reset() {
+    setExpanded(false);
+    setGenre('');
+    setPage(1);
+    setSearchTerm('');
+  }
+
   if (isLoading) {
     return (
       <div className="error-container">
@@ -44,12 +61,7 @@ export function Movies() {
       {data.length === 0 ? (
         <div className="error-container">
           <h1>No Movies Found</h1>
-          <button
-            className="btn btn-primary"
-            onClick={() => {
-              window.location.reload(false);
-            }}
-          >
+          <button className="btn btn-primary" onClick={reset}>
             Go Back
           </button>
         </div>

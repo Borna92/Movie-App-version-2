@@ -6,8 +6,18 @@ import PagesFooter from './PagesFooter';
 import { AppContext } from './Context';
 
 function Shows() {
-  const { genre, page, setTotalPages, data, setData, searchTerm } =
-    useContext(AppContext);
+  const {
+    genre,
+    page,
+    setTotalPages,
+    data,
+    setData,
+    searchTerm,
+    setExpanded,
+    setGenre,
+    setPage,
+    setSearchTerm,
+  } = useContext(AppContext);
 
   const SHOWSAPI = `https://api.themoviedb.org/3/${
     searchTerm === '' ? 'discover' : 'search'
@@ -31,6 +41,13 @@ function Shows() {
       });
   }
 
+  function reset() {
+    setExpanded(false);
+    setGenre('');
+    setPage(1);
+    setSearchTerm('');
+  }
+
   if (isLoading) {
     return (
       <div className="error-container">
@@ -45,12 +62,7 @@ function Shows() {
       {data.length === 0 ? (
         <div className="error-container">
           <h1>No Shows Found</h1>
-          <button
-            className="btn btn-primary"
-            onClick={() => {
-              window.location.reload(false);
-            }}
-          >
+          <button className="btn btn-primary" onClick={reset}>
             Go Back
           </button>
         </div>
