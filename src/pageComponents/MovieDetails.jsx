@@ -45,12 +45,10 @@ function MovieDetails() {
     Axios.get(API)
       .then((resp) => {
         setData(resp.data);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
-      })
-      .finally(() => {
-        setIsLoading(false);
       });
   }
   if (isLoading) {
