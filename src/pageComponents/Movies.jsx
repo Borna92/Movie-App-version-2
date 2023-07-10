@@ -4,6 +4,7 @@ import Card from './Card';
 import SearchBar from './SearchBar';
 import PagesFooter from './PagesFooter';
 import { AppContext } from './Context';
+import { Link } from 'react-router-dom';
 
 export function Movies() {
   const {
@@ -61,9 +62,9 @@ export function Movies() {
       {data.length === 0 ? (
         <div className="error-container">
           <h1>No Movies Found</h1>
-          <button className="btn btn-primary" onClick={reset}>
+          <Link to="/" className="btn btn-primary" onClick={reset}>
             Go Back
-          </button>
+          </Link>
         </div>
       ) : (
         <>
